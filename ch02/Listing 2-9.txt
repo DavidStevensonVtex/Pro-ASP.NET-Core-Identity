@@ -1,0 +1,2 @@
+dotnet tool install --global dotnet-ef
+Tool 'dotnet-ef' is already installed.
