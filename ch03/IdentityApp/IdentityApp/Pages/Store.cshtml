@@ -12,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (Product p in Model.OrderBy(p => p.Id))
+            @foreach (Product p in Model.DbContext.Products.OrderBy(p => p.Id))
             {
                 <tr>
                     <td>@p.Id</td>
