@@ -1,3 +1,6 @@
+using IdentityApp.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace IdentityApp
 {
     public class Program
@@ -7,16 +10,21 @@ namespace IdentityApp
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddControllersWithViews();
             builder.Services.AddRazorPages();
+            builder.Services.AddDbContext<ProductDbContext>(opts =>
+            {
+                opts.UseSqlServer(builder.Configuration["ConnectionStrings:AppDataConnection"]);
+            });
 
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
-                app.UseExceptionHandler("/Error");
+                app.UseDeveloperExceptionPage();
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
+                //app.UseHsts();
             }
 
             app.UseHttpsRedirection();
@@ -24,8 +32,15 @@ namespace IdentityApp
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    endpoints.MapDefaultControllerRoute();
+            //    endpoints.MapRazorPages();
+            //});
+
+            app.MapDefaultControllerRoute();
             app.MapRazorPages();
 
             app.Run();
