@@ -15,6 +15,7 @@ namespace IdentityApp
             builder.Services.AddDbContext<ProductDbContext>(opts =>
             {
                 opts.UseSqlServer(builder.Configuration["ConnectionStrings:AppDataConnection"]);
+                opts.EnableSensitiveDataLogging(true);
             });
 
             var app = builder.Build();
