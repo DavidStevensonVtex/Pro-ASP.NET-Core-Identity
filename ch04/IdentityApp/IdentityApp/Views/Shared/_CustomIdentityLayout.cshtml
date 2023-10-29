@@ -3,21 +3,26 @@
 <head>
 	<meta name="viewport" content="width=device-width" />
 	<title>Identity App</title>
-	<link href="~/wwwroot/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="~/wwwroot/css/site.css" rel="stylesheet" />
+	<link href="/Identity/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+	<link href="/Identity/css/site.css" rel="stylesheet" />
 	<script src="/Identity/lib/jquery/dist/jquery.min.js"></script>
-	<script src="/Identity/lib/bootstrap/dist/bootstrap.bundle.js"></script>
+	<script src="/Identity/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
 	<script src="/Identity/js/site.js" asp-append-version="true"></script>
 
 </head>
 <body>
 	<nav class="navbar navbar-dark bg-secondary">
 		<a class="navbar-brand text-white">IdentityApp</a>
-		<div class="text-white"><partial name="_LoginPartial" /></div>
+		<div class="text-white">
+			<partial name="_LoginPartial" />
+		</div>
 	</nav>
 	<div class="p-2">
+		<partial name="_NavigationPartial" />
+	</div>
+	<div class="p-2">
 		@RenderBody()
-		@RenderSectionAsync("Scripts", required: false) 
+		@await RenderSectionAsync("Scripts", required: false)
 	</div>
 </body>
 </html>
