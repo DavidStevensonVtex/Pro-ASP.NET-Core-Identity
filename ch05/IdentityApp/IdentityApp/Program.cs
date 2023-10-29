@@ -44,6 +44,13 @@ namespace IdentityApp
                 })
                 .AddEntityFrameworkStores<IdentityDbContext>();
 
+            builder.Services.AddAuthentication()
+                .AddFacebook(opts =>
+                {
+                    opts.AppId = builder.Configuration["Facebook:AppId"];
+                    opts.AppSecret = builder.Configuration["Facebook:AppSecret"];
+                });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
