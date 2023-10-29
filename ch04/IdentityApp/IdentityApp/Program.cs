@@ -1,6 +1,8 @@
 using IdentityApp.Models;
+using IdentityApp.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace IdentityApp
@@ -26,6 +28,8 @@ namespace IdentityApp
                     builder.Configuration["ConnectionStrings:IdentityConnection"],
                     opts => opts.MigrationsAssembly("IdentityApp"));
             });
+
+            builder.Services.AddScoped<IEmailSender, ConsoleEmailSender>();
 
             builder.Services.AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<IdentityDbContext>();

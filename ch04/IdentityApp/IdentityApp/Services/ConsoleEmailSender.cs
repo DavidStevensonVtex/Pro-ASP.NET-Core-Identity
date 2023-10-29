@@ -1,8 +1,9 @@
 ﻿using System.Web;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace IdentityApp.Services
 {
-    public class ConsoleEmailSender
+    public class ConsoleEmailSender : IEmailSender
     {
         public Task SendEmailAsync(string emailAddress, string subject, string htmlMessage)
         {
