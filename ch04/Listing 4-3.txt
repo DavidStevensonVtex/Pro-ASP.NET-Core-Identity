@@ -1,0 +1,2 @@
+dotnet add package Microsoft.Extensions.Identity.Core --version 6.0.24
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 6.0.24
