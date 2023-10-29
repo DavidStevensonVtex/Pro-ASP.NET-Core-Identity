@@ -1,0 +1,3 @@
+dotnet ef migrations add IdentityInitial --context IdentityDbContext
+dotnet ef database drop --force --context IdentityDbContext
+dotnet ef database update --context IdentityDbContext
