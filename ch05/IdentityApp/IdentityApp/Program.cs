@@ -31,7 +31,14 @@ namespace IdentityApp
 
             builder.Services.AddScoped<IEmailSender, ConsoleEmailSender>();
 
-            builder.Services.AddDefaultIdentity<IdentityUser>()
+            builder.Services.AddDefaultIdentity<IdentityUser>(
+                opts =>
+                {
+                    opts.Password.RequiredLength = 8;
+                    opts.Password.RequireDigit = false;
+                    opts.Password.RequireLowercase = false;
+                    opts.Password.RequireNonAlphanumeric = false;
+                })
                 .AddEntityFrameworkStores<IdentityDbContext>();
 
             var app = builder.Build();
