@@ -1,0 +1,3 @@
+dotnet user-secrets init
+dotnet user-secrets set "Facebook:AppId" "<app-id>"
+dotnet user-secrets set "Facebook:AppSecret" "<app-secret>"
