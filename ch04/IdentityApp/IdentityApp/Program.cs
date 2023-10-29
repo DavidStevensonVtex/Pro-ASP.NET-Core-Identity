@@ -1,4 +1,6 @@
 using IdentityApp.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace IdentityApp
@@ -15,8 +17,18 @@ namespace IdentityApp
             builder.Services.AddDbContext<ProductDbContext>(opts =>
             {
                 opts.UseSqlServer(builder.Configuration["ConnectionStrings:AppDataConnection"]);
-                opts.EnableSensitiveDataLogging(true);
+                //opts.EnableSensitiveDataLogging(true);
             });
+
+            builder.Services.AddDbContext<IdentityDbContext>(opts =>
+            {
+                opts.UseSqlServer(
+                    builder.Configuration["ConnectionStrings:IdentityConnection"],
+                    opts => opts.MigrationsAssembly("IdentityApp"));
+            });
+
+            builder.Services.AddDefaultIdentity<IdentityUser>()
+                .AddEntityFrameworkStores<IdentityDbContext>();
 
             var app = builder.Build();
 
