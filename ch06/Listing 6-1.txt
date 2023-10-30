@@ -1,0 +1,5 @@
+dotnet ef database drop --force --context ProductDbContext
+dotnet ef database drop --force --context IdentityDbContext
+dotnet ef database update --context ProductDbContext
+dotnet ef database update --context IdentityDbContext
+
