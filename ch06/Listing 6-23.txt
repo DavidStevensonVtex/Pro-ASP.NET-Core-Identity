@@ -1,0 +1,1 @@
+dotnet aspnet-codegenerator identity --dbContext Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityDbContext --files Account.Manage.EnableAuthenticator --no-build
