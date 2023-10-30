@@ -2,6 +2,7 @@
 @inject UserManager<IdentityUser> UserManager
 @{
     ViewData["ActivePage"] = ManageNavPages.StoreData;
+    ViewData["ParentLayout"] = "_InfoLayout";
     IdentityUser user = await UserManager.GetUserAsync(User);
 }
 
