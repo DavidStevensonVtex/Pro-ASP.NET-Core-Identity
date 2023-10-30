@@ -1,3 +1,5 @@
 dotnet user-secrets init
 dotnet user-secrets set "Google:ClientId" "<client-id>"
 dotnet user-secrets set "Google:ClientSecret" "<client-secret>"
+
+dotnet add package Microsoft.AspNetCore.Authentication.Google --version 6.0.24
