@@ -1,0 +1,1 @@
+dotnet add package Microsoft.AspNetCore.Authentication.Google --version 6.0.24
