@@ -1,0 +1,3 @@
+dotnet user-secrets init
+dotnet user-secrets set "Google:ClientId" "<client-id>"
+dotnet user-secrets set "Google:ClientSecret" "<client-secret>"
