@@ -8,7 +8,7 @@
 	<script src="/Identity/lib/jquery/dist/jquery.min.js"></script>
 	<script src="/Identity/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
 	<script src="/Identity/js/site.js" asp-append-version="true"></script>
-    <script type="text/javascript" src="~/lib/qrcode/qrcode.min.js"></script>
+    @* <script type="text/javascript" src="~/lib/qrcode/qrcode.min.js"></script> *@
     <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
@@ -25,7 +25,7 @@
 		@RenderBody()
 		@await RenderSectionAsync("Scripts", required: false)
 	</div>
-	<script type="text/javascript">
+@* 	<script type="text/javascript">
 		var element = document.getElementById("qrcode");
 		if (element !== null) {
 			new QRCode(element, {
@@ -34,6 +34,6 @@
 			});
 			element.previousElementSibling?.remove();
 		}
-	</script>
+	</script> *@
 </body>
 </html>
