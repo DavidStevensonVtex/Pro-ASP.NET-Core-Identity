@@ -1,4 +1,4 @@
-﻿@page {label?}/{callback}
+﻿@page "{label?}/{callback?}"
 @model IdentityApp.Pages.Admin.SelectUserModel
 @{
     ViewBag.Workflow = Model.Callback ?? Model.Label ?? "List";
@@ -28,7 +28,7 @@
         </tr>
     </thead>
     <tbody>
-        @if (Model.Users.Count() === 0)
+        @if (Model.Users.Count() == 0)
         {
             <tr><td colspan="2">No matches</td></tr>
         }
