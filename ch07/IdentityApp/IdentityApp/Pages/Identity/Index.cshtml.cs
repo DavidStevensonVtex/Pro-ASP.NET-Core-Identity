@@ -5,6 +5,8 @@ namespace IdentityApp.Pages.Identity
 {
     public class IndexModel : PageModel
     {
+        public string Email { get; set; }
+        public string Phone { get; set; }
         public void OnGet()
         {
         }
