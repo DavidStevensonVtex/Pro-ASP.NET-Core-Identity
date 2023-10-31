@@ -24,8 +24,19 @@ namespace IdentityApp.Pages.Admin
             "alice@example.com", "bob@example.com", "charlie@example.com"
         };
 
+        public void OnGet()
+        {
+            UsersCount = UserManager.Users.Count();
+        }
+
         public async Task<IActionResult> OnPostAsync()
         {
+            foreach (IdentityUser existingUser in UserManager.Users.ToList() )
+            {
+                IdentityResult result = await UserManager.DeleteAsync(existingUser);
+                result.Process(ModelState);
+            }
+
             foreach (string email in emails)
             {
                 IdentityUser userObject = new IdentityUser
