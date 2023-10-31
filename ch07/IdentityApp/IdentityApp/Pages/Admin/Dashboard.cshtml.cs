@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using IdentityApp.Pages.Identity;
 
 namespace IdentityApp.Pages.Admin
 {
@@ -34,10 +35,18 @@ namespace IdentityApp.Pages.Admin
                     EmailConfirmed = true
                 };
 
+                IdentityResult result = await UserManager.CreateAsync(userObject);
+                result.Process(ModelState);
+
                 await UserManager.CreateAsync(userObject);
             }
 
-            return RedirectToPage();
+            if (ModelState.IsValid)
+            {
+                return RedirectToPage();
+            }
+
+            return Page();
         }
     }
 }
