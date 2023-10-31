@@ -37,8 +37,6 @@ namespace IdentityApp.Pages.Admin
 
                 IdentityResult result = await UserManager.CreateAsync(userObject);
                 result.Process(ModelState);
-
-                await UserManager.CreateAsync(userObject);
             }
 
             if (ModelState.IsValid)
