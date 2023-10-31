@@ -39,9 +39,7 @@ namespace IdentityApp
                     opts.Password.RequireDigit = false;
                     opts.Password.RequireLowercase = false;
                     opts.Password.RequireNonAlphanumeric = false;
-                    opts.SignIn.RequireConfirmedEmail = false;          // default: false
                     opts.SignIn.RequireConfirmedAccount = true;         // default: false
-                    opts.SignIn.RequireConfirmedPhoneNumber = false;    // default: false
                 })
                 .AddEntityFrameworkStores<IdentityDbContext>();
 
