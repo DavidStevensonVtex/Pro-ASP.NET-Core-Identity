@@ -46,7 +46,7 @@ namespace IdentityApp.Pages.Identity.Admin
                 IdentityUser user = await UserManager.FindByIdAsync(Id);
                 if (user != null)
                 {
-                    user.UserName = userData.Username;
+                    user.UserName = userData.Email;
                     user.Email = userData.Email;
                     user.EmailConfirmed = true;
                     if (!string.IsNullOrEmpty(userData.PhoneNumber))
