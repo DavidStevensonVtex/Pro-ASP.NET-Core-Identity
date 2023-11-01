@@ -31,7 +31,7 @@ namespace IdentityApp.Pages.Identity.Admin
             if (string.IsNullOrEmpty(Id))
             {
                 return RedirectToPage("Selectuser",
-                    new { Label = "Edit User", AsyncCallback = "Edit" });
+                    new { Label = "Edit User", Callback = "Edit" });
             }
 
             IdentityUser = await UserManager.FindByIdAsync(Id);
