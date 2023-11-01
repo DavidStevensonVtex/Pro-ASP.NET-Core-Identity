@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace IdentityApp.Pages.Admin
+namespace IdentityApp.Pages.Identity.Admin
 {
-    public class SelectUserModel : PageModel
+    public class SelectUserModel : AdminPageModel
     {
         public SelectUserModel(UserManager<IdentityUser> mgr) =>
             UserManager = mgr;

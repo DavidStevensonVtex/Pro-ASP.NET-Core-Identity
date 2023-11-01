@@ -21,8 +21,13 @@
                     <td class="text-right">$@p.Price.ToString("F2")</td>
                     <td class="text-center">
                         <form method="post">
-                            <button class="btn btn-sm btn-danger" asp-action="delete" asp-route-id="@p.Id">Delete</button>
-                            <a class="btn btn-sm btn-warning" asp-action="edit" asp-route-id="@p.Id">Edit</a>
+                            <button class="btn btn-sm btn-danger" 
+                                asp-action="delete" 
+                                asp-route-id="@p.Id">
+                                Delete
+                            </button>
+                            <a class="btn btn-sm btn-warning" asp-page="edit" 
+                                asp-route-id="@p.Id">Edit</a>
                         </form>
                     </td>
                 </tr>

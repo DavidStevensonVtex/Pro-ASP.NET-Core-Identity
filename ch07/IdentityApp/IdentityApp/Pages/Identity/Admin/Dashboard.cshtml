@@ -1,5 +1,5 @@
-﻿@page "/pages/Identity/Admin"
-@model IdentityApp.Pages.Admin.DashboardModel
+﻿@page "/identity/admin"
+@model IdentityApp.Pages.Identity.Admin.DashboardModel
 @{
     ViewBag.Workflow = "Dashboard";
 }
@@ -13,7 +13,7 @@
         <tr><th>Locked out users:</th><td>@Model.UsersLockedout</td></tr>
         <tr>
             <th>Users with two-factor enabled:</th>
-            <th>@Model.UsersTwoFactor</th>
+            <td>@Model.UsersTwoFactor</td>
         </tr>
     </tbody>
 </table>

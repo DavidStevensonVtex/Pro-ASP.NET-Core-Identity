@@ -1,7 +1,7 @@
 ﻿@page "/pages/edit/{id:long?}"
 @model IdentityApp.Pages.EditModel
 
-<h4 class="bg-primary text-white text-center p-2">Product Pages</h4>
+<h4 class="bg-info text-white text-center p-2">Product Page</h4>
 
 <form method="post" class="p-2">
     <div class="form-group">
@@ -21,7 +21,7 @@
         <input class="form-control" type="number" asp-for="@Model.Product.Price" />
     </div>
     <div class="text-center">
-        <button type="submit" class="btn btn-primary">Save</button>
-        <a class="btn btn-secondary" asp-action="Admin">Cancel</a>
+        <button type="submit" class="btn btn-secondary">Save</button>
+        <a class="btn btn-secondary" asp-page="Admin">Cancel</a>
     </div>
 </form>

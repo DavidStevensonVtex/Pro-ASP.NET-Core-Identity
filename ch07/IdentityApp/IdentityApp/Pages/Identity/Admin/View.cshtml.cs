@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace IdentityApp.Pages.Admin
+namespace IdentityApp.Pages.Identity.Admin
 {
-    public class ViewModel : PageModel
+    public class ViewModel : AdminPageModel
     {
         public ViewModel(UserManager<IdentityUser> mgr) => UserManager = mgr;
 
@@ -16,7 +16,8 @@ namespace IdentityApp.Pages.Admin
         public string Id { get; set; }
 
         public IEnumerable<string> PropertyNames =>
-            typeof(IdentityUser).GetProperties().Select(prop => prop.Name);
+            typeof(IdentityUser).GetProperties()
+                .Select(prop => prop.Name);
 
         public string GetValue(string name) =>
             typeof(IdentityUser).GetProperty(name).GetValue(IdentityUser)?.ToString();
@@ -25,7 +26,8 @@ namespace IdentityApp.Pages.Admin
         {
             if (string.IsNullOrEmpty(Id))
             {
-                return RedirectToPage("Selectuser", new { Label = "View User", Callback = "View" });
+                return RedirectToPage("Selectuser", 
+                    new { Label = "View User", Callback = "View" });
             }
 
             IdentityUser = await UserManager.FindByIdAsync(Id);

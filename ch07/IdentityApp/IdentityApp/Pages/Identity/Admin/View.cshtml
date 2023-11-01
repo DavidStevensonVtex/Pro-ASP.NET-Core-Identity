@@ -1,5 +1,5 @@
 ﻿@page "{Id?}"
-@model IdentityApp.Pages.Admin.ViewModel
+@model IdentityApp.Pages.Identity.Admin.ViewModel
 @{
     ViewBag.Workflow = "List";
 }
@@ -21,7 +21,7 @@
     </tbody>
 </table>
 
-<a asp-page="Edit" asp-route-did="@Model.Id" class="btn btn-secondary">
+<a asp-page="Edit" asp-route-id="@Model.Id" class="btn btn-secondary">
     Edit
 </a>
 

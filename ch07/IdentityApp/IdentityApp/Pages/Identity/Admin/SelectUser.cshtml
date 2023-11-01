@@ -1,5 +1,5 @@
 ﻿@page "{label?}/{callback?}"
-@model IdentityApp.Pages.Admin.SelectUserModel
+@model IdentityApp.Pages.Identity.Admin.SelectUserModel
 @{
     ViewBag.Workflow = Model.Callback ?? Model.Label ?? "List";
 }
@@ -8,7 +8,7 @@
     <div class="form-row">
         <div class="col">
             <div class="input-group">
-                <input asp-formaction="Filter" class="form-control" />
+                <input asp-for="Filter" class="form-control" />
             </div>
         </div>
         <div class="col-auto">
@@ -41,13 +41,9 @@
                     @if (!string.IsNullOrEmpty(Model.Callback))
                     {
                         <td class="text-center">
-                            <td class="text-center">
-                                <td class="text-center">
-                                    <a asp-asp-page="@Model.Callback" asp-route-id="@user.Id" class="btn btn-sm btn-secondary">
-                                        @Model.Callback
-                                    </a>
-                                </td>
-                            </td>
+                            <a asp-page="@Model.Callback" asp-route-id="@user.Id" class="btn btn-sm btn-secondary">
+                                @Model.Callback
+                            </a>
                         </td>
                     }
                 </tr>
