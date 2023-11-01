@@ -32,7 +32,7 @@ namespace IdentityApp
 
             builder.Services.AddScoped<IEmailSender, ConsoleEmailSender>();
 
-            builder.Services.AddDefaultIdentity<IdentityUser>(
+            builder.Services.AddIdentity<IdentityUser, IdentityRole>(
                 opts =>
                 {
                     opts.Password.RequiredLength = 8;
